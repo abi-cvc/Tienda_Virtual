@@ -1,4 +1,9 @@
 <?php
+// Iniciar sesión
+session_start();
+$nombre = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
+
+// Determinar el archivo de categorías según el idioma
 if (!isset($_COOKIE['Idioma']) || $_COOKIE['Idioma'] == "ES") {
     $archivo = "categorias_es.txt";
 } else {
@@ -15,7 +20,7 @@ $categorias = preg_split("/[\s,]+/", trim($contenido));
 </head>
 <body>
     <h1>Bienvenido a el Panel Principal de Productos</h1>
-    <h1>Bienvenido <?php echo $nombre; ?></h1>
+    <h1>Bienvenido <?php echo htmlspecialchars($nombre); ?></h1>
     <hr>
     <a href="cambiarIdioma.php?idioma=ES">ES/(Español)│ </a>
     <a href="cambiarIdioma.php?idioma=EN">EN/(English)</a>

@@ -1,5 +1,9 @@
 <?php
 // -----------------------------
+// Iniciar sesión
+session_start();
+
+// -----------------------------
 // Redirección para evitar problemas de mayúsculas/minúsculas
 $actualPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $correctPath = '/Tienda_Virtual/login.php';
@@ -42,6 +46,9 @@ $textos = [
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = $_POST['nombre'];
     $clave = $_POST['clave'];
+
+    // Guardar en sesión
+    $_SESSION['usuario'] = $nombre;
 
     if (isset($_POST['recordarme'])) {
         // Guardar cookies por 30 días
