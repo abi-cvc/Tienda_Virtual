@@ -54,6 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Aquí iría la validación del usuario/contraseña
+    // --- Redirigir al panel (aquí podrías agregar validación real)
+    header("Location: panel.php?lang=$idioma");
+    exit();
 }
 
 ?>
