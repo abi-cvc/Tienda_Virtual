@@ -4,11 +4,24 @@ if (!isset($_COOKIE['Idioma']) || $_COOKIE['Idioma'] == "ES") {
 } else {
     $archivo = "categorias_en.txt";
 }
-// Lectura del archivo de productos
-$contenido = file_get_contents($archivo);
-// Separar por comas o saltos de línea
-$categorias = preg_split("/[\s,]+/", trim($contenido));
-?> 
+
+// Modificacion de lectura de ficheros, por "|" en vez de ","
+//Leer el archivo línea por línea
+$lineas = file($archivo, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+$productos = [];
+
+// Formato: id|nombre|descripcion|precio
+foreach ($lineas as $linea) {
+    list($id, $nombre, $descripcion, $precio) = explode('|', $linea);
+    $productos[] = [
+        'id' => trim($id),
+        'nombre' => trim($nombre),
+        'descripcion' => trim($descripcion),
+        'precio' => trim($precio)
+    ];
+}
+
+?>
 
 <html>
 <head>
@@ -25,14 +38,12 @@ $categorias = preg_split("/[\s,]+/", trim($contenido));
             echo "Product List";
         } ?> </h1>
     <ul>
-<?php
-    foreach ($categorias as $categoria) {
-    if (!empty($categoria)) {
-        $categoria_url = urlencode($categoria);
-        echo "<li><a href='producto.php?categoria=$categoria_url'>" . htmlspecialchars($categoria) . "</a></li>";
+    <?php
+        foreach ($productos as $producto) {
+        $categoria_url = urlencode($producto['nombre']);
+        echo "<li><a href='producto.php?categoria=$categoria_url'>" . htmlspecialchars($producto['nombre']) . "</a></li>";
         }
-    }
     ?>
-</ul>
+    </ul>
 </body>
 </html>

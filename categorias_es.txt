@@ -1,14 +1,14 @@
-Pantalones,
-Camisas,
-Camisetas,
-Chandals,
-Mallas,
-Polos,
-Sudaderas,
-Chaquetas,
-Forros polares,
-Chalecos,
-Abrigos,
-Jerseys,
-Corbatas,
-Zapatos
+1|Pantalones|descrip ya le coloco aqui|10.00
+2|Camisas|descrip ya le coloco aqui|8.00
+3|Camisetas|descrip ya le coloco aqui|1.00
+4|Chandals|descrip ya le coloco aqui|5.00
+5|Mallas|descrip ya le coloco aqui|7.00
+6|Polos|descrip ya le coloco aqui|6.00
+7|Sudaderas|descrip ya le coloco aqui|9.00
+8|Chaquetas|descrip ya le coloco aqui|10.80
+9|Forros polares|descrip ya le coloco aqui|4.20
+10|Chalecos|descrip ya le coloco aqui|10.10
+11|Abrigos|descrip ya le coloco aqui|10.07
+12|Jerseys|descrip ya le coloco aqui|100.00
+13|Corbatas|descrip ya le coloco aqui|10.08
+14|Zapatos|descrip ya le coloco aqui|104.00

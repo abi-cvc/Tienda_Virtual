@@ -1,14 +1,14 @@
-Pants,
-Shirts
-Tshirts,
-Tracksuits,
-Tights,
-Poles,
-Sweatshirts,
-Jackets,
-Fleece linings,
-Vests,
-Coats,
-Sweaters,
-Ties,
-Shoes
+1|Pants|descrip en ingles aqui|10.00
+2|Shirts|descrip en ingles aqui|8.00
+3|Tshirts|descrip en ingles aqui|1.00
+4|Tracksuits|descrip en ingles aqui|5.00
+5|Tights|descrip en ingles aqui|7.00
+6|Poles|descrip en ingles aqui|6.00
+7|Sweatshirts|descrip en ingles aqui|9.00
+8|Jackets|descrip en ingles aqui|10.80
+9|Fleece linings|descrip en ingles aqui|4.20
+10|Vests|descrip en ingles aqui|10.10
+11|Coats|descrip en ingles aqui|10.07
+12|Sweaters|descrip en ingles aqui|100.00
+13|Ties|descrip en ingles aqui|10.08
+14|Shoes|descrip en ingles aqui|104.00
