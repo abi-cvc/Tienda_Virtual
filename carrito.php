@@ -1,10 +1,13 @@
 <?php
 session_start();
+// Para que funcione al abrir en el navegador de forma independiente.
+/*
 if (!isset($_SESSION['usuario'])) {
     // Redirigir al login si el usuario no ha iniciado sesión
     header("Location: index.php");
     exit;
 }
+    */
 
 $nombreUsuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
 

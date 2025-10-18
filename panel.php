@@ -37,6 +37,9 @@ foreach ($lineas as $linea) {
     <hr>
     <a href="cambiarIdioma.php?idioma=ES">ES/(Español)│ </a>
     <a href="cambiarIdioma.php?idioma=EN">EN/(English)</a>
+    <a href="carrito.php">Carrito de Compra</a> |
+    <a href="cerrarSesion.php">Cerrar Sesión</a>
+    
     <h1> <?php if (!isset($_COOKIE['Idioma']) || $_COOKIE['Idioma'] == "ES") {
             echo "Lista de Productos";
         } else {
