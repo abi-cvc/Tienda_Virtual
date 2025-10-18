@@ -9,6 +9,8 @@ if (!isset($_SESSION["nombre"]) && !isset($_SESSION["clave"])) {
 $nombreUsuario = $_SESSION['usuario'];
 */
 
+$nombreUsuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
+
 // Idioma desde la cookie
 if (!isset($_COOKIE['Idioma']) || $_COOKIE['Idioma'] == "ES") {
     $archivo = "categorias_es.txt";
