@@ -1,5 +1,12 @@
 <?php
 session_start();
+if (!isset($_SESSION['usuario'])) {
+    // Redirigir al login si el usuario no ha iniciado sesión
+    header("Location: login.php");
+    exit;
+}
+
+$nombre = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
 
 // Idioma desde la cookie
 if (!isset($_COOKIE['Idioma']) || $_COOKIE['Idioma'] == "ES") {
