@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['usuario'])) {
     // Redirigir al login si el usuario no ha iniciado sesión
-    header("Location: login.php");
+    header("Location: index.php");
     exit;
 }
 

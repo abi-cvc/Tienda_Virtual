@@ -6,7 +6,7 @@ session_start();
 // -----------------------------
 // Redirección para evitar problemas de mayúsculas/minúsculas
 $actualPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$correctPath = '/Tienda_Virtual/login.php';
+$correctPath = '/Tienda_Virtual/index.php';
 
 if (strcasecmp($actualPath, $correctPath) !== 0) {
     header("Location: $correctPath");
@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </form>
 
 <!-- Formulario de login -->
-<form action="login.php?lang=<?= $idioma ?>" method="POST">
+<form action="index.php?lang=<?= $idioma ?>" method="POST">
     <fieldset>
         <label><?= $textos[$idioma]["usuario"] ?></label><br>
         <input type="text" name="nombre" value="<?= isset($_COOKIE['usuario']) ? $_COOKIE['usuario'] : '' ?>" /><br><br>
