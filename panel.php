@@ -33,7 +33,7 @@ foreach ($lineas as $linea) {
 </head>
 <body>
     <h1>Bienvenido a el Panel Principal de Productos</h1>
-    <h1>Bienvenido <?php echo htmlspecialchars($nombre); ?></h1>
+    <h1>Bienvenido <?php echo htmlspecialchars($nombreUsuario); ?></h1>
     <hr>
     <a href="cambiarIdioma.php?idioma=ES">ES/(Español)│ </a>
     <a href="cambiarIdioma.php?idioma=EN">EN/(English)</a>
