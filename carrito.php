@@ -11,6 +11,10 @@ if (!isset($_SESSION['usuario'])) {
 
 $nombreUsuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
 
+// Verificar autenticación (protege la página)
+require_once __DIR__ . '/inc/auth.php';
+$nombreUsuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
+
 // Idioma desde la cookie
 if (!isset($_COOKIE['Idioma']) || $_COOKIE['Idioma'] == "ES") {
     $idioma = "ES";

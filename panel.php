@@ -3,6 +3,10 @@
 session_start();
 $nombreUsuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
 
+// Verificar autenticación (protege la página)
+require_once __DIR__ . '/inc/auth.php';
+$nombreUsuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
+
 // Determinar el archivo de categorías según el idioma
 if (!isset($_COOKIE['Idioma']) || $_COOKIE['Idioma'] == "ES") {
     $archivo = "categorias_es.txt";
@@ -39,7 +43,7 @@ foreach ($lineas as $linea) {
     <a href="cambiarIdioma.php?idioma=EN">EN/(English)</a>
     <a href="carrito.php">Carrito de Compra</a> |
     <a href="cerrarSesion.php">Cerrar Sesión</a>
-    
+
     <h1> <?php if (!isset($_COOKIE['Idioma']) || $_COOKIE['Idioma'] == "ES") {
             echo "Lista de Productos";
         } else {

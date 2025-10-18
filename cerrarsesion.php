@@ -10,9 +10,14 @@ $_SESSION = [];
 // Borrar cookie de sesión (si existe)
 if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
-    setcookie(session_name(), '', time() - 42000,
-        $params['path'], $params['domain'],
-        $params['secure'], $params['httponly']
+    setcookie(
+        session_name(), 
+        '', 
+        time() - 42000,
+        $params['path'], 
+        $params['domain'],
+        isset($params['secure']) ? $params['secure'] : false,
+        isset($params['httponly']) ? $params['httponly'] : false
     );
 }
 
@@ -23,9 +28,6 @@ session_destroy();
 setcookie('usuario', '', time() - 3600, '/');
 setcookie('clave', '', time() - 3600, '/');
 setcookie('csrf_token', '', time() - 3600, '/');
-
-// Opcional: no borrar cookie "Idioma" si quieres mantener la preferencia
-// setcookie('Idioma', '', time() - 3600, '/');
 
 // Redirigir a la página de login
 header('Location: /Tienda_Virtual/index.php');
