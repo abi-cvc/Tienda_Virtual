@@ -44,16 +44,16 @@ $textos = [
 // -----------------------------
 // Manejar cookies si se envía el formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nombre = $_POST['nombre'];
-    $clave = $_POST['clave'];
+    $nombreUsuario = $_POST['nombre'];
+    $claveUsuario = $_POST['clave'];
 
     // Guardar en sesión
-    $_SESSION['usuario'] = $nombre;
+    $_SESSION['usuario'] = $nombreUsuario;
 
     if (isset($_POST['recordarme'])) {
         // Guardar cookies por 30 días
-        setcookie('usuario', $nombre, time() + 30*24*60*60, "/");
-        setcookie('clave', $clave, time() + 30*24*60*60, "/");
+        setcookie('usuario', $nombreUsuario, time() + 30*24*60*60, "/");
+        setcookie('clave', $claveUsuario, time() + 30*24*60*60, "/");
     } else {
         // Borrar cookies si existen
         setcookie('usuario', '', time() - 3600, "/");

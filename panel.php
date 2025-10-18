@@ -1,7 +1,7 @@
 <?php
 // Iniciar sesión
 session_start();
-$nombre = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
+$nombreUsuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
 
 // Determinar el archivo de categorías según el idioma
 if (!isset($_COOKIE['Idioma']) || $_COOKIE['Idioma'] == "ES") {

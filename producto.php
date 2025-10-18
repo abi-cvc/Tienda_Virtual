@@ -1,10 +1,9 @@
 <?php
 session_start();
-$nombre = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
 
 /* Para que funcione al abrir en el navegador de forma independiente.
 if (!isset($_SESSION["nombre"]) && !isset($_SESSION["clave"])) {
-    header("Location: index.php");
+    header("Location: login.php");
     exit();
 }
 $nombreUsuario = $_SESSION['usuario'];
