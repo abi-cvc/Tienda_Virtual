@@ -1,14 +1,14 @@
-1|Pantalones|descrip ya le coloco aqui|10.00
-2|Camisas|descrip ya le coloco aqui|8.00
-3|Camisetas|descrip ya le coloco aqui|1.00
-4|Chandals|descrip ya le coloco aqui|5.00
-5|Mallas|descrip ya le coloco aqui|7.00
-6|Polos|descrip ya le coloco aqui|6.00
-7|Sudaderas|descrip ya le coloco aqui|9.00
-8|Chaquetas|descrip ya le coloco aqui|10.80
-9|Forros polares|descrip ya le coloco aqui|4.20
-10|Chalecos|descrip ya le coloco aqui|10.10
-11|Abrigos|descrip ya le coloco aqui|10.07
-12|Jerseys|descrip ya le coloco aqui|100.00
-13|Corbatas|descrip ya le coloco aqui|10.08
-14|Zapatos|descrip ya le coloco aqui|104.00
+1|Pantalones|Diseñados para máxima comodidad y estilo, ideales tanto para uso diario como para ocasiones casuales.|16.00
+2|Camisas|Elegancia y frescura en cada costura. Perfectas para oficina o eventos, con tejidos transpirables que mantienen una sensación ligera.|18.50
+3|Camisetas|Suaves, ligeras y con diseños modernos. Ideales para combinar con cualquier atuendo y mantenerte fresco todo el día.|8.50
+4|Chandals|Comodidad total para tu rutina deportiva o relajada. Conjuntos de alta calidad que combinan elasticidad y durabilidad.|25.00
+5|Mallas|Se adaptan perfectamente al cuerpo, brindando soporte y flexibilidad para entrenamientos intensos o uso diario.|12.00
+6|Polos|Clásicos y versátiles, perfectos para lucir casual pero con estilo. Tela suave que resiste múltiples lavadas sin perder forma.|13.50
+7|Sudaderas|Calidez y confort sin sacrificar estilo. Ideales para climas templados o tardes frescas, con acabados suaves al tacto.|18.00
+8|Chaquetas|Protección contra el viento y la lluvia con diseño moderno. Perfectas para ciudad o actividades al aire libre.|30.00
+9|Forros polares|Abrigados, ligeros y cómodos. Ideales para zonas frías o de montaña, con interior térmico que retiene el calor.|24.00
+10|Chalecos|Prácticos y modernos, añaden una capa extra de calor sin restringir el movimiento.|19.00
+11|Abrigos|Elegancia y abrigo en un solo diseño. Material premium que garantiza confort y protección en días fríos.|38.00
+12|Jerseys|Textura suave y diseño clásico que nunca pasa de moda. Ideales para un look casual o semiformal.|22.00
+13|Corbatas|Toque final para un estilo sofisticado. Diseños elegantes para oficina, reuniones o eventos.|5.00
+14|Zapatos|Fabricados con materiales resistentes y cómodos. Perfectos para caminar con estilo y durabilidad.|25.00

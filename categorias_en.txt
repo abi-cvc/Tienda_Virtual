@@ -1,14 +1,14 @@
-1|Pants|descrip en ingles aqui|10.00
-2|Shirts|descrip en ingles aqui|8.00
-3|Tshirts|descrip en ingles aqui|1.00
-4|Tracksuits|descrip en ingles aqui|5.00
-5|Tights|descrip en ingles aqui|7.00
-6|Poles|descrip en ingles aqui|6.00
-7|Sweatshirts|descrip en ingles aqui|9.00
-8|Jackets|descrip en ingles aqui|10.80
-9|Fleece linings|descrip en ingles aqui|4.20
-10|Vests|descrip en ingles aqui|10.10
-11|Coats|descrip en ingles aqui|10.07
-12|Sweaters|descrip en ingles aqui|100.00
-13|Ties|descrip en ingles aqui|10.08
-14|Shoes|descrip en ingles aqui|104.00
+1|Pants|Designed for maximum comfort and style, perfect for everyday wear or casual occasions.|16.00
+2|Shirts|Elegance and freshness in every stitch. Perfect for office or events, made with breathable fabrics for a light and airy feel.|18.50
+3|Tshirts|Soft, lightweight, and stylish. Ideal for any outfit, keeping you cool and comfortable all day long.|8.50
+4|Tracksuits|Total comfort for your sports or leisure routine. High-quality sets that combine flexibility and durability.|25.00
+5|Tights|Perfectly fit your body, offering support and flexibility for workouts or daily use.|12.00
+6|Poles|Classic and versatile, perfect for a casual yet refined look. Soft fabric that holds its shape after multiple washes.|13.50
+7|Sweatshirts|Warmth and comfort without losing style. Ideal for mild climates or cool evenings, with a soft-touch finish.|18.00
+8|Jackets|Wind- and rain-resistant with a modern design. Perfect for city life or outdoor adventures.|30.00
+9|Fleece linings|Warm, light, and comfortable. Perfect for colder or mountain areas, with thermal interiors that retain heat.|24.00
+10|Vests|Practical and trendy, adding an extra layer of warmth without restricting movement.|19.00
+11|Coats|Elegance and warmth in one design. Premium materials ensure comfort and protection on cold days.|38.00
+12|Sweaters|Soft texture and timeless design. Ideal for casual or semi-formal looks.|22.00
+13|Ties|The final touch for a sophisticated look. Elegant designs for office wear, meetings, or events.|5.00
+14|Shoes|Made from durable, comfortable materials. Perfect for walking in style and with long-lasting quality.|25.00
