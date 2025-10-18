@@ -29,7 +29,8 @@ $textos = [
         "clave" => "Clave:",
         "boton" => "Ingresar",
         "idioma" => "Idioma",
-        "recordarme" => "Recordarme"
+        "recordarme" => "Recordarme",
+        "error" => "Debe ingresar su Usuario y Clave."
     ],
     "en" => [
         "titulo" => "Login",
@@ -37,7 +38,8 @@ $textos = [
         "clave" => "Password:",
         "boton" => "Sign in",
         "idioma" => "Language",
-        "recordarme" => "Remember me"
+        "recordarme" => "Remember me",
+        "error" => "You must enter your Username and Password."
     ]
 ];
 
@@ -47,23 +49,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombreUsuario = $_POST['nombre'];
     $claveUsuario = $_POST['clave'];
 
-    // Guardar en sesión
-    $_SESSION['usuario'] = $nombreUsuario;
-
-    if (isset($_POST['recordarme'])) {
-        // Guardar cookies por 30 días
-        setcookie('usuario', $nombreUsuario, time() + 30*24*60*60, "/");
-        setcookie('clave', $claveUsuario, time() + 30*24*60*60, "/");
+    // Verificar que ambos campos fueron llenados
+    if (empty($nombreUsuario) || empty($claveUsuario)) {
+        echo "<script>alert('{$textos[$idioma]['error']}');</script>";
     } else {
-        // Borrar cookies si existen
-        setcookie('usuario', '', time() - 3600, "/");
-        setcookie('clave', '', time() - 3600, "/");
-    }
+        // Guardar en sesión
+        $_SESSION['usuario'] = $nombreUsuario;
 
-    // Aquí iría la validación del usuario/contraseña
-    // --- Redirigir al panel (aquí podrías agregar validación real)
-    header("Location: panel.php?lang=$idioma");
-    exit();
+        // Manejo de cookies (Recordarme)
+        if (isset($_POST['recordarme'])) {
+            // Guardar cookies por 30 días
+            setcookie('usuario', $nombreUsuario, time() + 30*24*60*60, "/");
+            setcookie('clave', $claveUsuario, time() + 30*24*60*60, "/");
+        } else {
+            // Borrar cookies si existen
+            setcookie('usuario', '', time() - 3600, "/");
+            setcookie('clave', '', time() - 3600, "/");
+        }
+
+        // Redirigir al panel solo si ambos campos son válidos
+        header("Location: panel.php?lang=$idioma");
+        exit();
+    }
 }
 
 ?>
