@@ -52,7 +52,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['carrito'] = [];
     }
 
-    $_SESSION['carrito'][] = $productoEncontrado;
+    $idProducto = $productoEncontrado['id'];
+    $encontrado = false;
+
+    // Verificar si el producto ya existe en el carrito
+    foreach ($_SESSION['carrito'] as &$item) {
+        if ($item['id'] === $idProducto) {
+            $item['cantidad'] += 1;
+            $encontrado = true;
+            break;
+        }
+    }
+
+    // Si no existe, lo agregamos como nuevo
+    if (!$encontrado) {
+        $productoEncontrado['cantidad'] = 1;
+        $_SESSION['carrito'][] = $productoEncontrado;
+    }
 
     $mensaje = ($idioma == "ES")
         ? "Producto agregado al carrito correctamente."
