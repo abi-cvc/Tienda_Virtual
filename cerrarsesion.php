@@ -28,6 +28,7 @@ session_destroy();
 setcookie('usuario', '', time() - 3600, '/');
 setcookie('clave', '', time() - 3600, '/');
 setcookie('csrf_token', '', time() - 3600, '/');
+setcookie('Idioma', '', time() - 3600, '/');
 
 // Redirigir a la página de login
 header('Location: /Tienda_Virtual/index.php');
