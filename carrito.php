@@ -1,14 +1,6 @@
 <?php
+// Iniciar sesión
 session_start();
-// Para que funcione al abrir en el navegador de forma independiente.
-/*
-if (!isset($_SESSION['usuario'])) {
-    // Redirigir al login si el usuario no ha iniciado sesión
-    header("Location: index.php");
-    exit;
-}
-    */
-
 $nombreUsuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
 
 // Verificar autenticación (protege la página)
@@ -24,6 +16,7 @@ if (!isset($_COOKIE['Idioma']) || $_COOKIE['Idioma'] == "ES") {
 
 // Textos traducidos
 if ($idioma == "ES") {
+    $bienvenida = "Bienvenido Usuario:";
     $titulo = "Carrito de Compras";
     $columnaNombre = "Nombre";
     $columnaDescripcion = "Descripción";
@@ -37,6 +30,7 @@ if ($idioma == "ES") {
     $mensajeEliminado = "Producto eliminado del carrito.";
     $mensajeVaciado = "Carrito vaciado correctamente.";
 } else {
+    $bienvenida = "Welcome User:";
     $titulo = "Shopping Cart";
     $columnaNombre = "Name";
     $columnaDescripcion = "Description";
@@ -78,6 +72,8 @@ if (isset($_POST['eliminar'])) {
     <title><?= htmlspecialchars($titulo) ?></title>
 </head>
 <body>
+    <h1><?= htmlspecialchars($bienvenida) ?> <?= isset($nombreUsuario) ? htmlspecialchars($nombreUsuario) : "Usuario" ?></h1>
+    <hr>
     <h1><?= htmlspecialchars($titulo) ?></h1>
     <a href="cambiarIdioma.php?idioma=ES">ES/(Español)│</a>
     <a href="cambiarIdioma.php?idioma=EN">EN/(English)</a>
