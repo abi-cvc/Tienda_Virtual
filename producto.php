@@ -1,14 +1,6 @@
 <?php
+// Iniciar sesión
 session_start();
-
-/* Para que funcione al abrir en el navegador de forma independiente.
-if (!isset($_SESSION["nombre"]) && !isset($_SESSION["clave"])) {
-    header("Location: index.php");
-    exit();
-}
-$nombreUsuario = $_SESSION['usuario'];
-*/
-
 $nombreUsuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : '';
 
 // Verificar autenticación (protege la página)
@@ -110,9 +102,6 @@ if ($idioma == "ES") {
 <body>
     <h1><?= htmlspecialchars($bienvenida) ?> <?= isset($nombreUsuario) ? htmlspecialchars($nombreUsuario) : "Usuario" ?></h1>
     <hr>
-    <a href="cambiarIdioma.php?idioma=ES">ES/(Español)│</a>
-    <a href="cambiarIdioma.php?idioma=EN">EN/(English)</a>
-    <br>
     <a href="panel.php">Panel Principal</a> |
     <a href="carrito.php">Carrito de Compra</a> |
     <a href="cerrarSesion.php">Cerrar Sesión</a>
