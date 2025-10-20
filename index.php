@@ -55,16 +55,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         // Guardar en sesión
         $_SESSION['usuario'] = $nombreUsuario;
-
+        $recordarme = isset($_POST["recordarme"]) ? true : false;
         // Manejo de cookies (Recordarme)
-        if (isset($_POST['recordarme'])) {
+        if ($recordarme) {
             // Guardar cookies por 30 días
-            setcookie('usuario', $nombreUsuario, time() + 30*24*60*60, "/");
-            setcookie('clave', $claveUsuario, time() + 30*24*60*60, "/");
+            setcookie('usuario', $nombreUsuario, time() + 3600, "/");
+            setcookie('clave', $claveUsuario, time() + 3600, "/");
+            setcookie('recordarme', 'true', time() + 3600, "/");
         } else {
             // Borrar cookies si existen
             setcookie('usuario', '', time() - 3600, "/");
             setcookie('clave', '', time() - 3600, "/");
+            setcookie('recordarme', '', time() - 3600, "/");
         }
 
         // Redirigir al panel solo si ambos campos son válidos
@@ -116,13 +118,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <form action="index.php?lang=<?= $idioma ?>" method="POST">
     <fieldset>
         <label><?= $textos[$idioma]["usuario"] ?></label><br>
-        <input type="text" name="nombre" value="<?= isset($_COOKIE['usuario']) ? $_COOKIE['usuario'] : '' ?>" /><br><br>
+        <input type="text" name="nombre" value="<?= isset($_COOKIE['usuario']) ? htmlspecialchars($_COOKIE['usuario']) : '' ?>" /><br><br>
 
         <label><?= $textos[$idioma]["clave"] ?></label><br>
-        <input type="password" name="clave" value="<?= isset($_COOKIE['clave']) ? $_COOKIE['clave'] : '' ?>" /><br><br>
+        <input type="password" name="clave" value="<?= isset($_COOKIE['clave']) ? htmlspecialchars($_COOKIE['clave']) : '' ?>" /><br><br>
 
         <label>
-            <input type="checkbox" name="recordarme" /> <?= $textos[$idioma]["recordarme"] ?>
+            <input type="checkbox" name="recordarme" <?= isset($_COOKIE['recordarme']) && $_COOKIE['recordarme'] === 'true' ? 'checked' : '' ?>/> <?= $textos[$idioma]["recordarme"] ?>
         </label><br><br>
 
         <input type="submit" value="<?= $textos[$idioma]["boton"] ?>" />

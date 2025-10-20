@@ -5,6 +5,7 @@ if ($idioma == "ES") {
 } elseif ($idioma == "EN") {
     setcookie("Idioma", "EN", time() + 3600, "/");
 }
-header("Location: panel.php");
+$previous_page = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'panel.php';
+header("Location: " . $previous_page);
 exit();
 ?>

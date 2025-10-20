@@ -94,32 +94,82 @@ if ($idioma == "ES") {
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="<?= strtolower($idioma) ?>">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($titulo) ?></title>
 </head>
 <body>
-    <h1><?= htmlspecialchars($bienvenida) ?> <?= isset($nombreUsuario) ? htmlspecialchars($nombreUsuario) : "Usuario" ?></h1>
+    <!-- Encabezado -->
+    <header>
+        <table width="100%" cellpadding="5">
+            <tr>
+                <td align="left">
+                    <h2><?= htmlspecialchars($bienvenida) ?> <?= isset($nombreUsuario) ? htmlspecialchars($nombreUsuario) : "Usuario" ?></h2>
+                </td>
+                <td align="right">
+                    <a href="cambiarIdioma.php?idioma=ES">ES/(Español)</a> │
+                    <a href="cambiarIdioma.php?idioma=EN">EN/(English)</a>
+                </td>
+            </tr>
+        </table>
+    </header>
     <hr>
-    <a href="panel.php">Panel Principal</a> |
-    <a href="carrito.php">Carrito de Compra</a> |
-    <a href="cerrarSesion.php">Cerrar Sesión</a>
 
-    <h1><?= htmlspecialchars($titulo) ?></h1>
-    <hr>
+    <!-- Menú de navegación -->
+    <nav>
+        <table width="100%" cellpadding="10" cellspacing="0" border="1">
+            <tr align="center">
+                <td width="33%"><a href="panel.php"><b>Panel Principal</b></a></td>
+                <td width="33%"><a href="carrito.php"><b>Carrito de Compra</b></a></td>
+                <td width="34%"><a href="cerrarSesion.php"><b>Cerrar Sesión</b></a></td>
+            </tr>
+        </table>
+    </nav>
+    <br>
 
-    <p><strong><?= $labelId ?>:</strong> <?= htmlspecialchars($productoEncontrado['id']) ?></p>
-    <p><strong><?= $labelNombre ?>:</strong> <?= htmlspecialchars($productoEncontrado['nombre']) ?></p>
-    <p><strong><?= $labelDescripcion ?>:</strong> <?= htmlspecialchars($productoEncontrado['descripcion']) ?></p>
-    <p><strong><?= $labelPrecio ?>:</strong> $<?= htmlspecialchars($productoEncontrado['precio']) ?></p>
-
-    <form method="POST">
-        <button type="submit"><?= htmlspecialchars($btnAgregar) ?></button>
-    </form>
-
-    <?php if (isset($mensaje)): ?>
-        <div class="mensaje"><?= htmlspecialchars($mensaje) ?></div>
-    <?php endif; ?>
+    <!-- Contenido principal -->
+    <main>
+        <h2 align="center"><?= htmlspecialchars($titulo) ?></h2>
+        
+        <!-- Detalles del producto -->
+        <table width="80%" align="center" cellpadding="8" cellspacing="0" border="1">
+            <tr>
+                <td width="30%" align="right"><strong><?= $labelId ?>:</strong></td>
+                <td width="70%" align="left"><?= htmlspecialchars($productoEncontrado['id']) ?></td>
+            </tr>
+            <tr>
+                <td align="right"><strong><?= $labelNombre ?>:</strong></td>
+                <td align="left"><?= htmlspecialchars($productoEncontrado['nombre']) ?></td>
+            </tr>
+            <tr>
+                <td align="right"><strong><?= $labelDescripcion ?>:</strong></td>
+                <td align="left"><?= htmlspecialchars($productoEncontrado['descripcion']) ?></td>
+            </tr>
+            <tr>
+                <td align="right"><strong><?= $labelPrecio ?>:</strong></td>
+                <td align="left">$<?= htmlspecialchars($productoEncontrado['precio']) ?></td>
+            </tr>
+        </table>
+        
+        <!-- Formulario de agregar al carrito -->
+        <table width="80%" align="center" cellpadding="15">
+            <tr>
+                <td align="center">
+                    <form method="POST">
+                        <button type="submit"><b><?= htmlspecialchars($btnAgregar) ?></b></button>
+                    </form>
+                </td>
+            </tr>
+            <?php if (isset($mensaje)): ?>
+            <tr>
+                <td align="center">
+                    <div style="color: green;"><b><?= htmlspecialchars($mensaje) ?></b></div>
+                </td>
+            </tr>
+            <?php endif; ?>
+        </table>
+    </main>
 </body>
 </html>
