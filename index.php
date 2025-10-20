@@ -6,7 +6,7 @@ session_start();
 // -----------------------------
 // Redirección para evitar problemas de mayúsculas/minúsculas
 $actualPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$correctPath = '/Tienda_Virtual/index.php';
+$correctPath = '/tienda/index.php';
 
 if (strcasecmp($actualPath, $correctPath) !== 0) {
     header("Location: $correctPath");
@@ -72,7 +72,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
