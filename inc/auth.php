@@ -18,6 +18,6 @@ if (!empty($_COOKIE['usuario']) && !empty($_COOKIE['clave'])) {
 }
 
 // Si no hay sesión ni cookies válidas, redirigir al login
-header('Location: /Tienda_Virtual/index.php');
+header('Location: /Tienda/index.php');
 exit;
 ?>

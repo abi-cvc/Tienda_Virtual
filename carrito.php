@@ -66,67 +66,115 @@ if (isset($_POST['eliminar'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="<?= strtolower($idioma) ?>">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($titulo) ?></title>
 </head>
 <body>
-    <h1><?= htmlspecialchars($bienvenida) ?> <?= isset($nombreUsuario) ? htmlspecialchars($nombreUsuario) : "Usuario" ?></h1>
+    <!-- Encabezado -->
+    <header>
+        <table width="100%" cellpadding="5">
+            <tr>
+                <td align="left">
+                    <h2><?= htmlspecialchars($bienvenida) ?> <?= isset($nombreUsuario) ? htmlspecialchars($nombreUsuario) : "Usuario" ?></h2>
+                </td>
+                <td align="right">
+                    <a href="cambiarIdioma.php?idioma=ES">ES/(Español)</a> │
+                    <a href="cambiarIdioma.php?idioma=EN">EN/(English)</a>
+                </td>
+            </tr>
+        </table>
+    </header>
     <hr>
-    <h1><?= htmlspecialchars($titulo) ?></h1>
-    <a href="cambiarIdioma.php?idioma=ES">ES/(Español)│</a>
-    <a href="cambiarIdioma.php?idioma=EN">EN/(English)</a>
-    <br><br>
-    <a href="panel.php"><?= htmlspecialchars($btnVolver) ?></a> |
-    <a href="cerrarSesion.php">Cerrar Sesión</a>
-    <hr>
 
-    <?php if (isset($mensaje)): ?>
-        <div style="color: green;"><?= htmlspecialchars($mensaje) ?></div>
-    <?php endif; ?>
+    <!-- Menú de navegación -->
+    <nav>
+        <table width="100%" cellpadding="10" cellspacing="0" border="1">
+            <tr align="center">
+                <td width="50%"><a href="panel.php"><b><?= htmlspecialchars($btnVolver) ?></b></a></td>
+                <td width="50%"><a href="cerrarSesion.php"><b>Cerrar Sesión</b></a></td>
+            </tr>
+        </table>
+    </nav>
+    <br>
 
-    <?php if (empty($_SESSION['carrito'])): ?>
-        <p><?= htmlspecialchars($mensajeVacio) ?></p>
-    <?php else: ?>
-        <form method="POST">
-            <table border="1" cellpadding="8">
+    <!-- Contenido principal -->
+    <main>
+        <h2 align="center"><?= htmlspecialchars($titulo) ?></h2>
+
+        <?php if (isset($mensaje)): ?>
+            <table width="80%" align="center">
                 <tr>
-                    <th><?= htmlspecialchars($columnaNombre) ?></th>
-                    <th><?= htmlspecialchars($columnaDescripcion) ?></th>
-                    <th><?= htmlspecialchars($columnaPrecio) ?></th>
-                    <th><?= htmlspecialchars($columnaCantidad) ?></th>
-                    <th><?= htmlspecialchars($columnaTotal) ?></th>
-                    <th></th>
-                </tr>
-
-                <?php
-                $totalGeneral = 0;
-                foreach ($_SESSION['carrito'] as $item):
-                    $subtotal = $item['precio'] * $item['cantidad'];
-                    $totalGeneral += $subtotal;
-                ?>
-                    <tr>
-                        <td><?= htmlspecialchars($item['nombre']) ?></td>
-                        <td><?= htmlspecialchars($item['descripcion']) ?></td>
-                        <td>$<?= htmlspecialchars($item['precio']) ?></td>
-                        <td><?= htmlspecialchars($item['cantidad']) ?></td>
-                        <td>$<?= number_format($subtotal, 2) ?></td>
-                        <td>
-                            <button type="submit" name="eliminar" value="<?= htmlspecialchars($item['id']) ?>">
-                                <?= htmlspecialchars($btnEliminar) ?>
-                            </button>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-                <tr>
-                    <td colspan="4" align="right"><strong><?= htmlspecialchars($columnaTotal) ?>:</strong></td>
-                    <td colspan="2"><strong>$<?= number_format($totalGeneral, 2) ?></strong></td>
+                    <td align="center">
+                        <div style="color: green;"><b><?= htmlspecialchars($mensaje) ?></b></div>
+                    </td>
                 </tr>
             </table>
             <br>
-            <button type="submit" name="vaciar"><?= htmlspecialchars($btnVaciar) ?></button>
-        </form>
-    <?php endif; ?>
+        <?php endif; ?>
+
+        <?php if (empty($_SESSION['carrito'])): ?>
+            <table width="80%" align="center">
+                <tr>
+                    <td align="center">
+                        <p><b><?= htmlspecialchars($mensajeVacio) ?></b></p>
+                    </td>
+                </tr>
+            </table>
+        <?php else: ?>
+            <form method="POST">
+                <table width="90%" align="center" cellpadding="8" cellspacing="0" border="1">
+                    <tr align="center" bgcolor="#f2f2f2">
+                        <th><?= htmlspecialchars($columnaNombre) ?></th>
+                        <th><?= htmlspecialchars($columnaDescripcion) ?></th>
+                        <th><?= htmlspecialchars($columnaPrecio) ?></th>
+                        <th><?= htmlspecialchars($columnaCantidad) ?></th>
+                        <th><?= htmlspecialchars($columnaTotal) ?></th>
+                        <th>Acciones</th>
+                    </tr>
+
+                    <?php
+                    $totalGeneral = 0;
+                    foreach ($_SESSION['carrito'] as $item):
+                        $subtotal = $item['precio'] * $item['cantidad'];
+                        $totalGeneral += $subtotal;
+                    ?>
+                        <tr align="center">
+                            <td><?= htmlspecialchars($item['nombre']) ?></td>
+                            <td><?= htmlspecialchars($item['descripcion']) ?></td>
+                            <td>$<?= htmlspecialchars($item['precio']) ?></td>
+                            <td><b><?= htmlspecialchars($item['cantidad']) ?></b></td>
+                            <td><b>$<?= number_format($subtotal, 2) ?></b></td>
+                            <td>
+                                <button type="submit" name="eliminar" value="<?= htmlspecialchars($item['id']) ?>">
+                                    <b><?= htmlspecialchars($btnEliminar) ?></b>
+                                </button>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    <tr>
+                        <td colspan="4" align="right" bgcolor="#f2f2f2">
+                            <strong><?= htmlspecialchars($columnaTotal) ?>:</strong>
+                        </td>
+                        <td align="center" bgcolor="#f2f2f2" colspan="2">
+                            <strong>$<?= number_format($totalGeneral, 2) ?></strong>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <table width="90%" align="center">
+                    <tr>
+                        <td align="center">
+                            <button type="submit" name="vaciar">
+                                <b><?= htmlspecialchars($btnVaciar) ?></b>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        <?php endif; ?>
+    </main>
 </body>
 </html>

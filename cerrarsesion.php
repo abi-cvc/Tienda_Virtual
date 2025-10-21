@@ -25,12 +25,14 @@ if (ini_get("session.use_cookies")) {
 session_destroy();
 
 // Borrar cookies propias (recordarme, csrf, etc.) si existen
-setcookie('usuario', '', time() - 3600, '/');
-setcookie('clave', '', time() - 3600, '/');
-setcookie('csrf_token', '', time() - 3600, '/');
-setcookie('Idioma', '', time() - 3600, '/');
+if (isset($_COOKIE['recordarme'])) {
+    setcookie('usuario', '', time() - 3600, '/');
+    setcookie('clave', '', time() - 3600, '/');
+    setcookie('recordarme', '', time() - 3600, '/');
+    setcookie('Idioma', '', time() - 3600, '/');
+}
 
 // Redirigir a la página de login
-header('Location: /Tienda_Virtual/index.php');
+header('Location: index.php');
 exit;
 ?>
