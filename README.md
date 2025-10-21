@@ -34,3 +34,9 @@ Este proyecto es una tienda virtual sencilla desarrollada en PHP. Permite a los 
 
 - PHP 7.x o superior
 - Servidor web (XAMPP)
+
+## Autores
+- Caicedo Erick
+- Cholango Belen
+- Llumiquinga Nahomy
+- Velasquez Carol
