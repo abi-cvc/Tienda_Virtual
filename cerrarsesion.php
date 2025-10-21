@@ -29,9 +29,10 @@ if (isset($_COOKIE['recordarme'])) {
     setcookie('usuario', '', time() - 3600, '/');
     setcookie('clave', '', time() - 3600, '/');
     setcookie('recordarme', '', time() - 3600, '/');
+    setcookie('Idioma', '', time() - 3600, '/');
 }
 
 // Redirigir a la página de login
-header('Location: /Tienda/index.php');
+header('Location: index.php');
 exit;
 ?>
