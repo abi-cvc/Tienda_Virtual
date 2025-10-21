@@ -25,7 +25,7 @@ if (ini_get("session.use_cookies")) {
 session_destroy();
 
 // Borrar cookies propias (recordarme, csrf, etc.) si existen
-if (!isset($_COOKIE['recordarme'])) {
+if (isset($_COOKIE['recordarme'])) {
     setcookie('usuario', '', time() - 3600, '/');
     setcookie('clave', '', time() - 3600, '/');
     setcookie('recordarme', '', time() - 3600, '/');
